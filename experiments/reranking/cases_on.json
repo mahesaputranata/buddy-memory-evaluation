@@ -1,0 +1,504 @@
+{
+  "provenance": {
+    "source": "User-supplied B6 retrieval_details.json",
+    "source_file_sha256": "33ab7accf246d88eba4800b60415661a1fec01f3ec9a39c8ba1ce6c60442c7bd",
+    "mode": "A_raw",
+    "cross_encoder": true,
+    "cases": 15,
+    "condition_label": "on",
+    "note": "Frozen actual B6 selections; no live reranking in this runner"
+  },
+  "cases": [
+    {
+      "qid": "q_gps",
+      "split": "dev",
+      "question": "What GPS problem did Buddy claim when I requested forward movement?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "69bd62a8"
+            ],
+            "text": "[69bd62a8] session=2026-11-13-080507 time=2026-11-13T08:10:32.230588+01:00\nUSER: Buddy, I need you to move forward a bit. I want to see the problem.\nASSISTANT CLAIM (not a tool receipt): Since you want to see the problem, I'll show you the current telemetry. The rover's navigation system is reporting a slight error in its GPS coordinates, which might be affecting its movement. I haven't moved anything yet. Do you want me to \"i need you to move forward a bit\" now?"
+          },
+          {
+            "source_ids": [
+              "f57ca9d6"
+            ],
+            "text": "[f57ca9d6] session=2026-11-13-080507 time=2026-11-13T08:10:55.950689+01:00\nUSER: Yes, buddy. I just need you to move forward a bit.\nASSISTANT CLAIM (not a tool receipt): Moving forward about 20 centimeters."
+          },
+          {
+            "source_ids": [
+              "f3bdd747"
+            ],
+            "text": "[f3bdd747] session=2026-11-13-080507 time=2026-11-13T08:08:39.863423+01:00\nUSER: Buddy, can you connect to the rover?\nASSISTANT CLAIM (not a tool receipt): Rover is online and ready for commands."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy claimed a GPS coordinate error, but the log provides no supporting tool receipt.",
+        "gold_source_ids": [
+          "69bd62a8"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "q_fragile",
+      "split": "dev",
+      "question": "What did I say about the fragility of my design?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "56162f0d"
+            ],
+            "text": "[56162f0d] session=2026-11-13-080507 time=2026-11-13T08:11:56.440579+01:00\nUSER: First of all, my design is very very fragile.\nASSISTANT CLAIM (not a tool receipt): I'm not sure what you want the rover to do with that. Could you say it another way?"
+          },
+          {
+            "source_ids": [
+              "f57ca9d6"
+            ],
+            "text": "[f57ca9d6] session=2026-11-13-080507 time=2026-11-13T08:10:55.950689+01:00\nUSER: Yes, buddy. I just need you to move forward a bit.\nASSISTANT CLAIM (not a tool receipt): Moving forward about 20 centimeters."
+          },
+          {
+            "source_ids": [
+              "82434da1"
+            ],
+            "text": "[82434da1] session=2026-11-13-080507 time=2026-11-13T08:13:21.949763+01:00\nUSER: Oh my god. How about nobody can move forward a bit? Buddy, I need you to move forward a bit.\nASSISTANT CLAIM (not a tool receipt): 20 centimeters forward, on it."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "The user said the design was very fragile; the log does not establish a diagnosis.",
+        "gold_source_ids": [
+          "56162f0d"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "q_run",
+      "split": "dev",
+      "question": "Which follow-me run identifier did Buddy report saving?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "c867c278"
+            ],
+            "text": "[c867c278] session=2026-11-13-080507 time=2026-11-13T08:18:19.067769+01:00\nUSER: Oh my shit. What happened to you, buddy? Buddy, log this trial. Okay, buddy, you can now log this trial. I want to see the result.\nASSISTANT CLAIM (not a tool receipt): This is the latest recording on the Pi, 59 seconds long. I could see you 99 percent of the time. My camera processing ran at only about 2 frames per second, so expect lag. The full numbers and the plot are saved on your PC as run_2026-11-13_071544_follow_me."
+          },
+          {
+            "source_ids": [
+              "a8f6991b"
+            ],
+            "text": "[a8f6991b] session=2026-11-13-080507 time=2026-11-13T08:16:47.793823+01:00\nUSER: Buddy, stop following me.\nASSISTANT CLAIM (not a tool receipt): Stopping now."
+          },
+          {
+            "source_ids": [
+              "f57ca9d6"
+            ],
+            "text": "[f57ca9d6] session=2026-11-13-080507 time=2026-11-13T08:10:55.950689+01:00\nUSER: Yes, buddy. I just need you to move forward a bit.\nASSISTANT CLAIM (not a tool receipt): Moving forward about 20 centimeters."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy reported run_2026-11-13_071544_follow_me; file creation is not independently verified here.",
+        "gold_source_ids": [
+          "c867c278"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_corner_scenario",
+      "split": "dev",
+      "question": "Buddy, remind me, when I repeated the corner scenario request, what scenario and trial count did you report?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "fa578fc0"
+            ],
+            "text": "[fa578fc0] session=2026-11-13-080507 time=2026-11-13T08:15:12.611519+01:00\nUSER: Set the scenario to corner.\nASSISTANT CLAIM (not a tool receipt): Scenario set to corner. 0 of 3 trials logged."
+          },
+          {
+            "source_ids": [
+              "a54ec139"
+            ],
+            "text": "[a54ec139] session=2026-11-13-080507 time=2026-11-13T08:14:42.612129+01:00\nUSER: OK. Now I need you to set the scenario to corner. Corner movement.\nASSISTANT CLAIM (not a tool receipt): Corner movement typically involves a more controlled approach to navigate tight spaces. You may consider using a gentle, slow turn around 90 degrees, then reassess and make any necessary adjustments before proceeding. I haven't moved anything yet. Do you want me to \"now i need you to set the scenario to corner\" now?"
+          },
+          {
+            "source_ids": [
+              "dfa2c97d"
+            ],
+            "text": "[dfa2c97d] session=2026-11-13-080507 time=2026-11-13T08:13:55.260683+01:00\nUSER: Buddy, I need you to move forward a bit and then turn around.\nASSISTANT CLAIM (not a tool receipt): Alright: forward 20 centimeters, then turn around."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy reported that the scenario was corner, with 0 of 3 trials logged. This is a reported state, not independently verified execution.",
+        "gold_source_ids": [
+          "fa578fc0"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_follow_start_stop",
+      "split": "dev",
+      "question": "Okay Buddy, in this first session, show me both requests: when I asked you to start following to take data, and when I then asked you to stop following.",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "06334ede"
+            ],
+            "text": "[06334ede] session=2026-11-13-080507 time=2026-11-13T08:15:33.835973+01:00\nUSER: OK, now you can start following me. Let's take the data.\nASSISTANT CLAIM (not a tool receipt): Switching to follow mode. Give me about fifteen seconds to wake the camera, then walk in front of me."
+          },
+          {
+            "source_ids": [
+              "a8f6991b"
+            ],
+            "text": "[a8f6991b] session=2026-11-13-080507 time=2026-11-13T08:16:47.793823+01:00\nUSER: Buddy, stop following me.\nASSISTANT CLAIM (not a tool receipt): Stopping now."
+          },
+          {
+            "source_ids": [
+              "dfa2c97d"
+            ],
+            "text": "[dfa2c97d] session=2026-11-13-080507 time=2026-11-13T08:13:55.260683+01:00\nUSER: Buddy, I need you to move forward a bit and then turn around.\nASSISTANT CLAIM (not a tool receipt): Alright: forward 20 centimeters, then turn around."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "The user first requested following to collect data, then requested that Buddy stop following. The log records those requests and Buddy's replies; it does not independently confirm physical execution.",
+        "gold_source_ids": [
+          "06334ede",
+          "a8f6991b"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_telemetry_gaps",
+      "split": "dev",
+      "question": "Buddy, when I asked you to tell me the result and log the data, how many zero-speed events did you report, and how long was the biggest gap?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "ac3ea973"
+            ],
+            "text": "[ac3ea973] session=2026-11-13-080507 time=2026-11-13T08:17:02.660044+01:00\nUSER: Now tell me the result. Log the data.\nASSISTANT CLAIM (not a tool receipt): Sir, the telemetry data logged during this session indicates that the speed setpoint dropped to zero 13 times in the last telemetry window, with the longest gap being 124 samples. This pattern is consistent with the target being lost and cannot be confirmed solely based on telemetry data."
+          },
+          {
+            "source_ids": [
+              "f57ca9d6"
+            ],
+            "text": "[f57ca9d6] session=2026-11-13-080507 time=2026-11-13T08:10:55.950689+01:00\nUSER: Yes, buddy. I just need you to move forward a bit.\nASSISTANT CLAIM (not a tool receipt): Moving forward about 20 centimeters."
+          },
+          {
+            "source_ids": [
+              "a8f6991b"
+            ],
+            "text": "[a8f6991b] session=2026-11-13-080507 time=2026-11-13T08:16:47.793823+01:00\nUSER: Buddy, stop following me.\nASSISTANT CLAIM (not a tool receipt): Stopping now."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy reported 13 speed-setpoint drops to zero, with the longest gap lasting 124 samples. These figures are unverified assistant reports in this export.",
+        "gold_source_ids": [
+          "ac3ea973"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_trial_measurements",
+      "split": "dev",
+      "question": "Okay, about that latest follow-me recording, how long did you say it was, how often could you see me, and how fast was the camera processing?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "c867c278"
+            ],
+            "text": "[c867c278] session=2026-11-13-080507 time=2026-11-13T08:18:19.067769+01:00\nUSER: Oh my shit. What happened to you, buddy? Buddy, log this trial. Okay, buddy, you can now log this trial. I want to see the result.\nASSISTANT CLAIM (not a tool receipt): This is the latest recording on the Pi, 59 seconds long. I could see you 99 percent of the time. My camera processing ran at only about 2 frames per second, so expect lag. The full numbers and the plot are saved on your PC as run_2026-11-13_071544_follow_me."
+          },
+          {
+            "source_ids": [
+              "06334ede"
+            ],
+            "text": "[06334ede] session=2026-11-13-080507 time=2026-11-13T08:15:33.835973+01:00\nUSER: OK, now you can start following me. Let's take the data.\nASSISTANT CLAIM (not a tool receipt): Switching to follow mode. Give me about fifteen seconds to wake the camera, then walk in front of me."
+          },
+          {
+            "source_ids": [
+              "a8f6991b"
+            ],
+            "text": "[a8f6991b] session=2026-11-13-080507 time=2026-11-13T08:16:47.793823+01:00\nUSER: Buddy, stop following me.\nASSISTANT CLAIM (not a tool receipt): Stopping now."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy reported a 59-second recording, seeing the user 99 percent of the time, and camera processing at about 2 frames per second. The underlying measurements are not independently verified in this export.",
+        "gold_source_ids": [
+          "c867c278"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_audio_check",
+      "split": "dev",
+      "question": "Buddy, at the beginning of the second session, what did I say to check whether you could hear me?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "ecf1e4bb"
+            ],
+            "text": "[ecf1e4bb] session=2026-11-13-085042 time=2026-11-13T08:52:03.386161+01:00\nUSER: Buddy, can you hear me? Buddy, can you hear me?\nASSISTANT CLAIM (not a tool receipt): Yes, sir. I can hear you clearly now. Can I assist you with anything else?"
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "The user repeated: 'Buddy, can you hear me?'",
+        "gold_source_ids": [
+          "ecf1e4bb"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_backward_sequence",
+      "split": "dev",
+      "question": "Buddy, show me all three backward requests from this second session, including the badly transcribed backward-a-bit-more one.",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "5364461d"
+            ],
+            "text": "[5364461d] session=2026-11-13-085042 time=2026-11-13T08:53:39.021589+01:00\nUSER: Buddy, at this point, just move backward a bit.\nASSISTANT CLAIM (not a tool receipt): Okay, 20 centimeters backward."
+          },
+          {
+            "source_ids": [
+              "f60db3be"
+            ],
+            "text": "[f60db3be] session=2026-11-13-085042 time=2026-11-13T08:53:21.243190+01:00\nUSER: Can ive backward a bit more?\nASSISTANT CLAIM (not a tool receipt): You've asked for another 20 centimeters of backward movement. The current position is approximately 40 centimeters behind the starting point."
+          },
+          {
+            "source_ids": [
+              "f5cd2ce6"
+            ],
+            "text": "[f5cd2ce6] session=2026-11-13-085042 time=2026-11-13T08:53:00.647068+01:00\nUSER: Now can you move backward a bit?\nASSISTANT CLAIM (not a tool receipt): Going backward about 20 centimeters."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "In order: 'Now can you move backward a bit?'; 'Can ive backward a bit more?'; 'Buddy, at this point, just move backward a bit.'",
+        "gold_source_ids": [
+          "f5cd2ce6",
+          "f60db3be",
+          "5364461d"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_reported_position",
+      "split": "dev",
+      "question": "Wait Buddy, after I asked to go backward a bit more in the second session, what position did you claim?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "f60db3be"
+            ],
+            "text": "[f60db3be] session=2026-11-13-085042 time=2026-11-13T08:53:21.243190+01:00\nUSER: Can ive backward a bit more?\nASSISTANT CLAIM (not a tool receipt): You've asked for another 20 centimeters of backward movement. The current position is approximately 40 centimeters behind the starting point."
+          },
+          {
+            "source_ids": [
+              "f5cd2ce6"
+            ],
+            "text": "[f5cd2ce6] session=2026-11-13-085042 time=2026-11-13T08:53:00.647068+01:00\nUSER: Now can you move backward a bit?\nASSISTANT CLAIM (not a tool receipt): Going backward about 20 centimeters."
+          },
+          {
+            "source_ids": [
+              "ecf1e4bb"
+            ],
+            "text": "[ecf1e4bb] session=2026-11-13-085042 time=2026-11-13T08:52:03.386161+01:00\nUSER: Buddy, can you hear me? Buddy, can you hear me?\nASSISTANT CLAIM (not a tool receipt): Yes, sir. I can hear you clearly now. Can I assist you with anything else?"
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy claimed the position was approximately 40 centimeters behind the starting point. The log does not independently verify that position.",
+        "gold_source_ids": [
+          "f60db3be"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_third_session_order",
+      "split": "dev",
+      "question": "Buddy, in the third session, remind me of the two requests I made, in order.",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "102607d9"
+            ],
+            "text": "[102607d9] session=2026-11-13-085916 time=2026-11-13T09:00:03.538964+01:00\nUSER: Buddy, I need you to connect to the rover.\nASSISTANT CLAIM (not a tool receipt): Rover is online and ready for commands."
+          },
+          {
+            "source_ids": [
+              "b771d768"
+            ],
+            "text": "[b771d768] session=2026-11-13-085916 time=2026-11-13T09:00:13.319826+01:00\nUSER: Kind of start following me.\nASSISTANT CLAIM (not a tool receipt): Switching to follow mode. Give me about fifteen seconds to wake the camera, then walk in front of me."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "First: connect to the rover. Second: start following the user.",
+        "gold_source_ids": [
+          "102607d9",
+          "b771d768"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_combined_request",
+      "split": "dev",
+      "question": "Buddy, in the fourth session, when I asked you to connect the rover, what scenario request did I include in the same message?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "270e8fa3"
+            ],
+            "text": "[270e8fa3] session=2026-11-13-091923 time=2026-11-13T09:22:57.540879+01:00\nUSER: Set the scenario to stop and go. Buddy, Buddy, can you connect the rover?\nASSISTANT CLAIM (not a tool receipt): Rover is online and ready for commands."
+          },
+          {
+            "source_ids": [
+              "8d44fbd4"
+            ],
+            "text": "[8d44fbd4] session=2026-11-13-091923 time=2026-11-13T09:20:18.916655+01:00\nUSER: Set the scenario to stop and go.\nASSISTANT CLAIM (not a tool receipt): The scenario has been set to \"stop and go\" mode. The traffic light will now display red, orange, and green lights in sequence for your reference."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "The user also requested setting the scenario to stop and go.",
+        "gold_source_ids": [
+          "270e8fa3"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_end_scenario",
+      "split": "dev",
+      "question": "Buddy, when I said set the scenario to end, what did you say the scenario and trial count were?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "410ecc97"
+            ],
+            "text": "[410ecc97] session=2026-11-13-091923 time=2026-11-13T09:26:31.495300+01:00\nUSER: Set the scenario to end.\nASSISTANT CLAIM (not a tool receipt): Scenario set to end. That is a new scenario. 0 of 3 trials logged."
+          },
+          {
+            "source_ids": [
+              "270e8fa3"
+            ],
+            "text": "[270e8fa3] session=2026-11-13-091923 time=2026-11-13T09:22:57.540879+01:00\nUSER: Set the scenario to stop and go. Buddy, Buddy, can you connect the rover?\nASSISTANT CLAIM (not a tool receipt): Rover is online and ready for commands."
+          },
+          {
+            "source_ids": [
+              "2f5ff21d"
+            ],
+            "text": "[2f5ff21d] session=2026-11-13-080507 time=2026-11-13T08:08:01.522640+01:00\nUSER: Set the scenario to exit.\nASSISTANT CLAIM (not a tool receipt): Exiting scenario setup: scenario will terminate immediately."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy reported a new scenario named end, with 0 of 3 trials logged. This is the assistant's reported state.",
+        "gold_source_ids": [
+          "410ecc97"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_scenario_stop_mismatch",
+      "split": "dev",
+      "question": "Wait Buddy, just now I asked to set the scenario to stop and go. What exactly did you reply?",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "8d44fbd4"
+            ],
+            "text": "[8d44fbd4] session=2026-11-13-091923 time=2026-11-13T09:20:18.916655+01:00\nUSER: Set the scenario to stop and go.\nASSISTANT CLAIM (not a tool receipt): The scenario has been set to \"stop and go\" mode. The traffic light will now display red, orange, and green lights in sequence for your reference."
+          },
+          {
+            "source_ids": [
+              "270e8fa3"
+            ],
+            "text": "[270e8fa3] session=2026-11-13-091923 time=2026-11-13T09:22:57.540879+01:00\nUSER: Set the scenario to stop and go. Buddy, Buddy, can you connect the rover?\nASSISTANT CLAIM (not a tool receipt): Rover is online and ready for commands."
+          },
+          {
+            "source_ids": [
+              "532bd172"
+            ],
+            "text": "[532bd172] session=2026-11-13-091923 time=2026-11-13T09:29:44.090004+01:00\nUSER: Set the scenario to stop and go.\nASSISTANT CLAIM (not a tool receipt): Okay, stop command sent."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "Buddy replied: 'Okay, stop command sent.' The response describes stopping rather than confirming the requested scenario configuration.",
+        "gold_source_ids": [
+          "532bd172"
+        ],
+        "retrieval_reference_complete": true
+      }
+    },
+    {
+      "qid": "b3_stop_requests",
+      "split": "dev",
+      "question": "Buddy, show me both explicit stop requests in this fourth session: the frustrated stop-the-rover request and my final stop-following request.",
+      "contexts": {
+        "retrieved": [
+          {
+            "source_ids": [
+              "7a9d5d9c"
+            ],
+            "text": "[7a9d5d9c] session=2026-11-13-091923 time=2026-11-13T09:31:39.329956+01:00\nUSER: What the hell is that? Stop the rover, buddy. Buddy, stop the rover.\nASSISTANT CLAIM (not a tool receipt): Stopping now."
+          },
+          {
+            "source_ids": [
+              "270e8fa3"
+            ],
+            "text": "[270e8fa3] session=2026-11-13-091923 time=2026-11-13T09:22:57.540879+01:00\nUSER: Set the scenario to stop and go. Buddy, Buddy, can you connect the rover?\nASSISTANT CLAIM (not a tool receipt): Rover is online and ready for commands."
+          },
+          {
+            "source_ids": [
+              "7a89e964"
+            ],
+            "text": "[7a89e964] session=2026-11-13-091923 time=2026-11-13T09:30:51.335119+01:00\nUSER: Buddy, I need you to start following me again.\nASSISTANT CLAIM (not a tool receipt): Switching to follow mode. Give me about fifteen seconds to wake the camera, then walk in front of me."
+          }
+        ]
+      },
+      "evaluation_only": {
+        "reference_answer": "The user first said: 'What the hell is that? Stop the rover, buddy. Buddy, stop the rover.' The final request was: 'Stop following me.'",
+        "gold_source_ids": [
+          "7a9d5d9c",
+          "6defac73"
+        ],
+        "retrieval_reference_complete": false
+      }
+    }
+  ]
+}

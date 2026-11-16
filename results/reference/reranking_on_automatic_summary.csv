@@ -1,0 +1,2 @@
+﻿model,condition,responses,failed_requests,json_schema_valid_fraction,source_ids_valid_fraction,median_client_ms,median_first_content_ms,median_load_ms,median_prompt_eval_ms,median_generation_ms,median_output_tokens,median_generation_tokens_per_second
+llama3.2:latest,retrieved,15,0,1.0,1.0,4384.143100003712,3894.112399997539,3339.5189,231.0,349.0,46,132.9787234042553

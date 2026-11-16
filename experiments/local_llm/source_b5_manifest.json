@@ -1,0 +1,34 @@
+{
+  "config": {
+    "backend": "sentence_transformer",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "group_similarity": 0.45,
+    "recurrence_similarity": 0.45,
+    "recurrence_count": 3,
+    "within_session": true,
+    "near_duplicate_seconds": 1.0,
+    "drop_duplicate_candidates": true,
+    "top_k": 3,
+    "context_char_budget": 2400,
+    "min_retrieval_score": 0.01,
+    "include_assistant_in_embedding": false,
+    "retrieval_include_assistant": true,
+    "session_aware_retrieval": true
+  },
+  "important_record_ids": [],
+  "input_sha256": "a414a1ae7cad794f0e7f1f56068c5e4e7e0cc8f8e55d168ab196c4a50633651e",
+  "python": "3.13.18",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "matplotlib": "3.10.0"
+  },
+  "limitations": [
+    "manual consolidation",
+    "development pilot",
+    "no generated answers",
+    "no verified robot execution",
+    "latency affected by caching"
+  ]
+}

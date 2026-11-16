@@ -1,0 +1,7 @@
+numpy>=1.26,<3
+pandas>=2.2,<3
+scikit-learn>=1.6,<2
+matplotlib>=3.9,<4
+ipython>=8,<10
+sentence-transformers>=3,<6
+jupyterlab>=4,<5

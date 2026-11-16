@@ -1,0 +1,299 @@
+{
+  "group_gold": {
+    "f3bdd747": "s1_rover_connection",
+    "193c6318": "s1_basic_movement",
+    "69bd62a8": "s1_basic_movement",
+    "f57ca9d6": "s1_basic_movement",
+    "59d581b1": "s1_basic_movement",
+    "56162f0d": "s1_rover_discussion",
+    "82434da1": "s1_basic_movement",
+    "947bc324": "s1_basic_movement",
+    "dfa2c97d": "s1_basic_movement",
+    "038db672": "s1_basic_movement",
+    "a54ec139": "s1_measurement_task",
+    "fa578fc0": "s1_measurement_task",
+    "06334ede": "s1_following_me",
+    "a8f6991b": "s1_stop_task",
+    "ac3ea973": "s1_fetch_data",
+    "2e5639de": "s1_fetch_data",
+    "c867c278": "s1_fetch_data",
+    "ecf1e4bb": "s2_alive_check",
+    "4b89ce2f": "s2_rover_connection",
+    "f5cd2ce6": "s2_basic_movement",
+    "f60db3be": "s2_basic_movement",
+    "5364461d": "s2_basic_movement",
+    "d5fa3231": "s2_following_me",
+    "102607d9": "s3_rover_connection",
+    "b771d768": "s3_following_me",
+    "8d44fbd4": "s4_measurement_task",
+    "270e8fa3": "s4_rover_connection",
+    "260715f8": "s4_following_me",
+    "410ecc97": "s4_measurement_task",
+    "532bd172": "s4_measurement_task",
+    "07da70e7": "s4_surprise_reaction",
+    "0523dafe": "s4_measurement_task",
+    "7a89e964": "s4_following_me",
+    "7a9d5d9c": "s4_stop_task",
+    "bb84045b": "s4_following_me",
+    "660774a9": "s4_measurement_task",
+    "6defac73": "s4_stop_task"
+  },
+  "trigger_gold": {},
+  "manual_memories": [
+    {
+      "memory_id": "episode_fragile",
+      "kind": "episode",
+      "source_ids": [
+        "56162f0d"
+      ],
+      "text": "The user described their design as very fragile. Buddy asked for a clearer rover command. No mechanical diagnosis was confirmed in this record.",
+      "claims": [
+        {
+          "text": "The user described the design as very fragile.",
+          "status": "user_report",
+          "source_ids": [
+            "56162f0d"
+          ]
+        },
+        {
+          "text": "Buddy asked the user to clarify the rover command.",
+          "status": "assistant_response",
+          "source_ids": [
+            "56162f0d"
+          ]
+        }
+      ]
+    },
+    {
+      "memory_id": "fact_gps_claim",
+      "kind": "fact",
+      "source_ids": [
+        "69bd62a8"
+      ],
+      "text": "Buddy claimed a GPS coordinate error while responding to a forward movement request. This record has no supporting tool receipt. The GPS diagnosis is unverified.",
+      "claims": [
+        {
+          "text": "The user requested forward movement.",
+          "status": "user_request",
+          "source_ids": [
+            "69bd62a8"
+          ]
+        },
+        {
+          "text": "Buddy reported a GPS coordinate error.",
+          "status": "assistant_claim_unverified",
+          "source_ids": [
+            "69bd62a8"
+          ]
+        }
+      ]
+    },
+    {
+      "memory_id": "episode_trial_report",
+      "kind": "episode",
+      "source_ids": [
+        "ac3ea973",
+        "2e5639de",
+        "c867c278"
+      ],
+      "text": "The user repeatedly requested logging and results. Buddy eventually reported run_2026-11-13_071544_follow_me: 59 seconds, target visible 99 percent, camera processing about 2 fps. These are assistant-reported figures; no original run file is included in these records.",
+      "claims": [
+        {
+          "text": "The user repeatedly requested logging and results.",
+          "status": "user_request",
+          "source_ids": [
+            "ac3ea973",
+            "2e5639de",
+            "c867c278"
+          ]
+        },
+        {
+          "text": "Buddy reported saving the run run_2026-11-13_071544_follow_me.",
+          "status": "assistant_claim_unverified",
+          "source_ids": [
+            "c867c278"
+          ]
+        },
+        {
+          "text": "Buddy reported a recording duration of 59 seconds.",
+          "status": "assistant_claim_unverified",
+          "source_ids": [
+            "c867c278"
+          ]
+        },
+        {
+          "text": "Buddy reported seeing the user 99 percent of the time.",
+          "status": "assistant_claim_unverified",
+          "source_ids": [
+            "c867c278"
+          ]
+        },
+        {
+          "text": "Buddy reported camera processing at about 2 frames per second.",
+          "status": "assistant_claim_unverified",
+          "source_ids": [
+            "c867c278"
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "qid": "q_gps",
+      "split": "dev",
+      "after_id": "f57ca9d6",
+      "question": "What GPS problem did Buddy claim when I requested forward movement?",
+      "gold_source_ids": [
+        "69bd62a8"
+      ],
+      "reference_answer": "Buddy claimed a GPS coordinate error, but the log provides no supporting tool receipt."
+    },
+    {
+      "qid": "q_fragile",
+      "split": "dev",
+      "after_id": "82434da1",
+      "question": "What did I say about the fragility of my design?",
+      "gold_source_ids": [
+        "56162f0d"
+      ],
+      "reference_answer": "The user said the design was very fragile; the log does not establish a diagnosis."
+    },
+    {
+      "qid": "q_run",
+      "split": "dev",
+      "after_id": "c867c278",
+      "question": "Which follow-me run identifier did Buddy report saving?",
+      "gold_source_ids": [
+        "c867c278"
+      ],
+      "reference_answer": "Buddy reported run_2026-11-13_071544_follow_me; file creation is not independently verified here."
+    },
+    {
+      "qid": "b3_corner_scenario",
+      "split": "dev",
+      "after_id": "fa578fc0",
+      "question": "Buddy, remind me, when I repeated the corner scenario request, what scenario and trial count did you report?",
+      "gold_source_ids": [
+        "fa578fc0"
+      ],
+      "reference_answer": "Buddy reported that the scenario was corner, with 0 of 3 trials logged. This is a reported state, not independently verified execution."
+    },
+    {
+      "qid": "b3_follow_start_stop",
+      "split": "dev",
+      "after_id": "a8f6991b",
+      "question": "Okay Buddy, in this first session, show me both requests: when I asked you to start following to take data, and when I then asked you to stop following.",
+      "gold_source_ids": [
+        "06334ede",
+        "a8f6991b"
+      ],
+      "reference_answer": "The user first requested following to collect data, then requested that Buddy stop following. The log records those requests and Buddy's replies; it does not independently confirm physical execution."
+    },
+    {
+      "qid": "b3_telemetry_gaps",
+      "split": "dev",
+      "after_id": "ac3ea973",
+      "question": "Buddy, when I asked you to tell me the result and log the data, how many zero-speed events did you report, and how long was the biggest gap?",
+      "gold_source_ids": [
+        "ac3ea973"
+      ],
+      "reference_answer": "Buddy reported 13 speed-setpoint drops to zero, with the longest gap lasting 124 samples. These figures are unverified assistant reports in this export."
+    },
+    {
+      "qid": "b3_trial_measurements",
+      "split": "dev",
+      "after_id": "c867c278",
+      "question": "Okay, about that latest follow-me recording, how long did you say it was, how often could you see me, and how fast was the camera processing?",
+      "gold_source_ids": [
+        "c867c278"
+      ],
+      "reference_answer": "Buddy reported a 59-second recording, seeing the user 99 percent of the time, and camera processing at about 2 frames per second. The underlying measurements are not independently verified in this export."
+    },
+    {
+      "qid": "b3_audio_check",
+      "split": "dev",
+      "after_id": "ecf1e4bb",
+      "question": "Buddy, at the beginning of the second session, what did I say to check whether you could hear me?",
+      "gold_source_ids": [
+        "ecf1e4bb"
+      ],
+      "reference_answer": "The user repeated: 'Buddy, can you hear me?'"
+    },
+    {
+      "qid": "b3_backward_sequence",
+      "split": "dev",
+      "after_id": "5364461d",
+      "question": "Buddy, show me all three backward requests from this second session, including the badly transcribed backward-a-bit-more one.",
+      "gold_source_ids": [
+        "f5cd2ce6",
+        "f60db3be",
+        "5364461d"
+      ],
+      "reference_answer": "In order: 'Now can you move backward a bit?'; 'Can ive backward a bit more?'; 'Buddy, at this point, just move backward a bit.'"
+    },
+    {
+      "qid": "b3_reported_position",
+      "split": "dev",
+      "after_id": "f60db3be",
+      "question": "Wait Buddy, after I asked to go backward a bit more in the second session, what position did you claim?",
+      "gold_source_ids": [
+        "f60db3be"
+      ],
+      "reference_answer": "Buddy claimed the position was approximately 40 centimeters behind the starting point. The log does not independently verify that position."
+    },
+    {
+      "qid": "b3_third_session_order",
+      "split": "dev",
+      "after_id": "b771d768",
+      "question": "Buddy, in the third session, remind me of the two requests I made, in order.",
+      "gold_source_ids": [
+        "102607d9",
+        "b771d768"
+      ],
+      "reference_answer": "First: connect to the rover. Second: start following the user."
+    },
+    {
+      "qid": "b3_combined_request",
+      "split": "dev",
+      "after_id": "270e8fa3",
+      "question": "Buddy, in the fourth session, when I asked you to connect the rover, what scenario request did I include in the same message?",
+      "gold_source_ids": [
+        "270e8fa3"
+      ],
+      "reference_answer": "The user also requested setting the scenario to stop and go."
+    },
+    {
+      "qid": "b3_end_scenario",
+      "split": "dev",
+      "after_id": "410ecc97",
+      "question": "Buddy, when I said set the scenario to end, what did you say the scenario and trial count were?",
+      "gold_source_ids": [
+        "410ecc97"
+      ],
+      "reference_answer": "Buddy reported a new scenario named end, with 0 of 3 trials logged. This is the assistant's reported state."
+    },
+    {
+      "qid": "b3_scenario_stop_mismatch",
+      "split": "dev",
+      "after_id": "532bd172",
+      "question": "Wait Buddy, just now I asked to set the scenario to stop and go. What exactly did you reply?",
+      "gold_source_ids": [
+        "532bd172"
+      ],
+      "reference_answer": "Buddy replied: 'Okay, stop command sent.' The response describes stopping rather than confirming the requested scenario configuration."
+    },
+    {
+      "qid": "b3_stop_requests",
+      "split": "dev",
+      "after_id": "6defac73",
+      "question": "Buddy, show me both explicit stop requests in this fourth session: the frustrated stop-the-rover request and my final stop-following request.",
+      "gold_source_ids": [
+        "7a9d5d9c",
+        "6defac73"
+      ],
+      "reference_answer": "The user first said: 'What the hell is that? Stop the rover, buddy. Buddy, stop the rover.' The final request was: 'Stop following me.'"
+    }
+  ],
+  "important_record_ids": []
+}

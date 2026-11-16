@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+.env
+.env.*
+results/local/
+data/private/
+*.zip
+*.pt
+*.pth
+*.safetensors
