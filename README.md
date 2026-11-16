@@ -2,7 +2,11 @@
 
 An offline evaluation study for a voice-controlled rover assistant: can it retrieve the right conversations, and can a local LLM answer correctly from them?
 
-**Author:** I Made Mahesa Putranata. **Status:** research prototype; no live rover commands. This repository separates the offline study from the running [Buddy assistant](https://github.com/mahesaputranata/buddy).
+**Author:** I Made Mahesa Putranata.
+
+**Status:** research prototype; no live rover commands. 
+
+This repository separates the offline study from the running [Buddy assistant](https://github.com/mahesaputranata/buddy).
 
 ## What the study found
 
